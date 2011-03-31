@@ -7,6 +7,7 @@
 </p>
 
 <h3>Photos</h3>
+<%= "No images" if @post.photos.size == 0 %>
 <div id="gallery">
   <ul>
     <%= render @post.photos %>

@@ -7,17 +7,9 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if @photo.save
         format.html { redirect_to(@post) }
+      else
+        format.html { redirect_to(@post) } #TODO - Deveria retornar a mensagem e não um redirect
       end
-    end
-  end
-
-  def destroy
-    @post = Post.find(params[:post_id])
-    @photo = Photo.find(params[:id])
-    @photo.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(@post) }
     end
   end
 
