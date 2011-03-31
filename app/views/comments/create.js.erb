@@ -1,0 +1,8 @@
+<% if @comment.valid? %>
+
+	$("#comments").append("<%= escape_javascript(render(@comment)) %>");
+	<% @comment = Comment.new %>
+	
+<% end %>
+
+$("#form_comments").html("<%= escape_javascript(render("form", :post => @post, :comment => @comment)) %>");

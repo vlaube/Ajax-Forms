@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @post.title %></h1>
+
+<p>
+  <%= raw RedCloth.new(@post.description).to_html %>
+</p>
+
+<h3>Photos</h3>
+<div id="gallery">
+  <ul>
+    <%= render @post.photos %>
+  </ul>
+</div>
+
+<h3>New Photo</h3>
+<%= render "photos/form", :post => @post, :photo => Photo.new %>
+
+<h3>Comments</h3>
+<div id="comments">
+  <%= render @post.comments %>
+</div>
+
+<h3>New Comment</h3>
+
+<div id="form_comments">
+  <%= render "comments/form", :post => @post, :comment => Comment.new %>
+</div>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
